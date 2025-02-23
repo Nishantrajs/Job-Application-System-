@@ -22,10 +22,16 @@ public class JobController
 
     @PostMapping("/jobs")
     public ResponseEntity<String> createJob(@RequestBody Job job) {
-
-         jobService.createJob(job);
-         return new ResponseEntity<>("Job added SuccessFully", HttpStatus.OK);
+        try {
+            jobService.createJob(job);
+            return new ResponseEntity<>("Job added successfully", HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace();  // Log the exception
+            return new ResponseEntity<>("Error occurred while adding job: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
+
+
 
     @GetMapping("/jobs/{Id}")
     public ResponseEntity<Job> getJobByID(@PathVariable Long Id){
