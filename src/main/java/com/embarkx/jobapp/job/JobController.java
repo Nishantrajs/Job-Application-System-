@@ -1,5 +1,6 @@
 package com.embarkx.jobapp.job;
 
+import com.embarkx.jobapp.company.Company;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
