@@ -1,16 +1,23 @@
 package com.embarkx.jobapp.review;
 
+import com.embarkx.jobapp.company.Company;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Review {
-    
+
     @Id
     private Long id;
     private String title;
     private String description;
     private double rating;
+
+    @JsonIgnore
+    @ManyToOne
+    private Company company;
 
     public Review() {
     }
@@ -20,6 +27,14 @@ public class Review {
         this.title = title;
         this.description = description;
         this.rating = rating;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
     }
 
     public Long getId() {
