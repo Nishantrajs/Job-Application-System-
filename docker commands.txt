@@ -1,0 +1,4 @@
+ ./mvnw spring-boot:build-image "-Dspring-boot.build-image.imageName=dcodex/jobappimage"
+ docker images   
+ docker tag dcodex/jobappimage:latest docker.io/Nishantrs/jobappimage:v8   
+docker push Nishantrs/jobappimage:v8               
